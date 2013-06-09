@@ -1,0 +1,22 @@
+{
+  "name": "There is only Keith Stuart",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Replace all google writers with Keith Stuart",
+  "permissions": [
+    "http://*.guardian.co.uk/*",
+    "https://*.guardian.co.uk/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.guardian.co.uk/*",
+        "https://*.guardian.co.uk/*"
+      ],
+      "js": [
+        "jquery.js",
+        "replaceor.js"
+      ]
+    }
+  ]
+}
