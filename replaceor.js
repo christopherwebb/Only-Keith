@@ -11,12 +11,24 @@ var replacor = function() {
   var current_blog_date = "September 4th, 2013";
   var current_text = "<p>Let’s cut the introductions, you know who we are. Or if you don’t you’ll at least know who Ste Curran is after listening to this season pilot episode.</p><br><br><p>Yes, the team is back and ready for action...</p>";
   
+  var headline = "One Life Left — s09e00 — #195";
+  var subheadline = "Noughts and mini-bosses";
+  var slide_down = "Let’s cut the introductions, you know who we are. Or if you don’t you’ll at least know who Ste Curran is after listening to this season pilot episode. Yes, the team is back and ready for action...";
+  var main_headline_jquery = ".six-col span.six-col .pixies li.pixie a";
+  var main_headline_image_jquery = ".six-col span.six-col .pixies li.pixie a img";
+
   var attempt_replacement = function() {
     // Masthead
-    if ($("#masthead #guardian-logo a img"))
-    {
-      $("#guardian-logo a img").attr("src", chrome.extension.getURL("onelifeleft.gif"));
-    }
+    $("#guardian-logo a img").attr("src", chrome.extension.getURL("onelifeleft.gif"));
+
+    // Front page work
+    $(main_headline_image_jquery).attr("src", "http://www.onelifeleft.com/wp-content/uploads/2013/09/195.jpg");
+    $(main_headline_image_jquery).attr("width", "460");
+    $(main_headline_image_jquery).attr("height", "460");
+    $(main_headline_jquery).attr("href", "http://www.onelifeleft.com/2013/09/04/one-life-left-s09e00-195-noughts-and-mini-bosses/");
+    $(".six-col span.six-col .pixies li.pixie h3 a").text(headline);
+    $(".six-col span.six-col .pixies li.pixie p a").text(subheadline);
+    $(".six-col span.six-col .pixies li.pixie .trail-text a").text(slide_down);
 
     // if we're on the Big Picture page...
     if (document.URL === "http://www.theguardian.com/artanddesign/series/big-picture")
