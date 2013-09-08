@@ -7,8 +7,29 @@ var replacor = function() {
   var keep_checking = true;
   var time_delay = 100;
   var checked_count = 0;
+  var current_blog_headline = "One Life Left — s09e00 — #195 — Noughts and mini-bosses";
+  var current_blog_date = "September 4th, 2013";
+  var current_text = "<p>Let’s cut the introductions, you know who we are. Or if you don’t you’ll at least know who Ste Curran is after listening to this season pilot episode.</p><br><br><p>Yes, the team is back and ready for action...</p>";
   
   var attempt_replacement = function() {
+    // Masthead
+    if ($("#masthead #guardian-logo a img"))
+    {
+      $("#guardian-logo a img").attr("src", chrome.extension.getURL("onelifeleft.gif"));
+    }
+
+    // if we're on the Big Picture page...
+    if (document.URL === "http://www.theguardian.com/artanddesign/series/big-picture")
+    {
+      $("#content .first .pictureurl a img").attr("src", "http://www.onelifeleft.com/wp-content/uploads/2013/09/195.jpg");
+      $("#content .first .pictureurl a img").attr("width", "300");
+      $("#content .first .pictureurl a img").attr("height", "300");
+      $("#content .first .pictureurl a").attr("href", "http://www.onelifeleft.com/2013/09/04/one-life-left-s09e00-195-noughts-and-mini-bosses/");
+      $("#content .first .linktext a").text(current_blog_headline);
+      $("#content .first .trailtext span").text(current_blog_date);
+      $("#content .first .trailtext p").replaceWith(current_text);
+    }
+
     if ($(".blog-byline a img"))
     {
       $(".blog-byline a img").attr("src", "http://static.guim.co.uk/sys-images/Technology/Pix/pictures/2008/09/03/keith_stuart_140x140.jpg");
@@ -53,3 +74,5 @@ var replacor = function() {
 
   set_timer();
 }();
+
+

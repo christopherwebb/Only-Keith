@@ -4,19 +4,22 @@
   "manifest_version": 2,
   "description": "Replace all google writers with Keith Stuart",
   "permissions": [
-    "http://*.guardian.co.uk/*",
-    "https://*.guardian.co.uk/*"
+    "http://*.theguardian.com/*",
+    "https://*.theguardian.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://*.guardian.co.uk/*",
-        "https://*.guardian.co.uk/*"
+        "http://*.theguardian.com/*",
+        "https://*.theguardian.com/*"
       ],
       "js": [
         "jquery.js",
         "replaceor.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "onelifeleft.gif"
   ]
 }
